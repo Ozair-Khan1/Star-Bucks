@@ -55,7 +55,7 @@ export function Reward() {
                             </div>
                         </div>
                         <div className="col-md-6 p-4 d-flex align-items-center">
-                            <img src="src\assets\rewards-hero.png" alt="" className="img img-fluid"/>
+                            <img src="/assets\rewards-hero.png" alt="" className="img img-fluid"/>
                         </div>
                         <div className="col-md-8 d-flex justify-content-center py-5">
                             <div className="card border-0">
@@ -68,7 +68,7 @@ export function Reward() {
                                         <div className="col-lg-7 col-md-12">
                                             <div className="card border-0 d-flex flex-row flex-lg-column flex-xl-column align-items-center justify-content-center text-break">
                                                 <div className="card-img col-md-2 d-flex mx-auto align-self-start mt-4" style={{width : 48, height : 48}}>
-                                                        <img src="src\rewards assets\getting-started-1.jpg" alt="image" className="img-fluid"/>
+                                                        <img src="/rewards assets\getting-started-1.jpg" alt="image" className="img-fluid"/>
                                                 </div>
                                                 <div className="card-body border-0 w-100 mt-3 text-break">
                                                     <h4 className="card-title text-start text-lg-center text-xl-center pb-3 w-100">Create An Account</h4>
@@ -79,7 +79,7 @@ export function Reward() {
                                         <div className="col-lg-7 col-md-12">
                                             <div className="card border-0 d-flex flex-row flex-lg-column flex-xl-column align-items-center justify-content-center text-break">
                                                 <div className="card-img col-md-2 d-flex mx-auto align-self-start mt-4" style={{width : 48, height : 48}}>
-                                                        <img src="src\rewards assets\getting-started-2.jpg" alt="image" className="img-fluid"/>
+                                                        <img src="/rewards assets\getting-started-2.jpg" alt="image" className="img-fluid"/>
                                                 </div>
                                                 <div className="card-body border-0 w-100 mt-3 text-break">
                                                     <h4 className="card-title text-start text-lg-center text-xl-center pb-3 w-100">Order and pay how you’d like</h4>
@@ -90,7 +90,7 @@ export function Reward() {
                                         <div className="col-lg-7 col-md-12">
                                             <div className="card border-0 d-flex flex-row flex-lg-column flex-xl-column align-items-center justify-content-center text-break">
                                                 <div className="card-img col-md-2 d-flex mx-auto align-self-start mt-4" style={{width : 48, height : 48}}>
-                                                        <img src="src\rewards assets\getting-started-3.jpg" alt="image" className="img-fluid"/>
+                                                        <img src="/rewards assets\getting-started-3.jpg" alt="image" className="img-fluid"/>
                                                 </div>
                                                 <div className="card-body border-0 w-100 mt-3 text-break">
                                                     <h4 className="card-title text-start text-lg-center text-xl-center pb-3 w-100">Earn Stars, get Rewards</h4>
@@ -150,7 +150,7 @@ export function Reward() {
                                         <div className="col-lg-7 col-md-12">
                                             <div className="card border-0 d-flex flex-row flex-lg-column flex-xl-column align-items-center justify-content-center text-break">
                                                 <div className="card-img-top col-md-2 d-flex mx-auto align-self-start mt-4" style={{width : 112, height : 112}}>
-                                                        <img src="src\rewards assets\1-fun-freebies.jpg" alt="image" className="img-fluid"/>
+                                                        <img src="/rewards assets\1-fun-freebies.jpg" alt="image" className="img-fluid"/>
                                                 </div>
                                                 <div className="card-body border-0 w-100 mt-3 text-break">
                                                     <h4 className="card-title text-start text-lg-center text-xl-center pb-3 w-100">Fun freebies</h4>
@@ -161,7 +161,7 @@ export function Reward() {
                                         <div className="col-lg-7 col-md-12">
                                             <div className="card border-0 d-flex flex-row flex-lg-column flex-xl-column align-items-center justify-content-center text-break">
                                                 <div className="card-img-top col-md-2 d-flex mx-auto align-self-start mt-4" style={{width : 112, height : 112}}>
-                                                        <img src="src\rewards assets\2-order-and-pay-ahead.jpg" alt="image" className="img-fluid"/>
+                                                        <img src="/rewards assets\2-order-and-pay-ahead.jpg" alt="image" className="img-fluid"/>
                                                 </div>
                                                 <div className="card-body border-0 w-100 mt-3 text-break">
                                                     <h4 className="card-title text-start text-lg-center text-xl-center pb-3 w-100">Order & pay ahead</h4>
@@ -172,7 +172,7 @@ export function Reward() {
                                         <div className="col-lg-7 col-md-12">
                                             <div className="card border-0 d-flex flex-row flex-lg-column flex-xl-column align-items-center justify-content-center text-break">
                                                 <div className="card-img-top col-md-2 d-flex mx-auto align-self-start mt-4" style={{width : 112, height : 112}}>
-                                                        <img src="src\rewards assets\3-get-to-free-faster.jpg" alt="image" className="img-fluid"/>
+                                                        <img src="/rewards assets\3-get-to-free-faster.jpg" alt="image" className="img-fluid"/>
                                                 </div>
                                                 <div className="card-body border-0 w-100 mt-3 text-break">
                                                     <h4 className="card-title text-start text-lg-center text-xl-center pb-3 w-100">Get to free faster</h4>
@@ -200,7 +200,7 @@ export function Reward() {
                                             <div className="card border-0">
                                                 <div className="card-body border-0 d-flex gap-3">
                                                     <div className="col-md-2" style={{height : 168, width : 128}}>
-                                                        <img src="src\rewards assets\1st img.png" alt="image" className="img-fluid"/>
+                                                        <img src="/rewards assets\1st img.png" alt="image" className="img-fluid"/>
                                                     </div>
                                                     <div className="w-100">
                                                         <h4 className="w-100 card-title text-black fw-semibold fs-5 text-start">Scan and pay separately</h4>
@@ -213,7 +213,7 @@ export function Reward() {
                                             <div className="card border-0">
                                                 <div className="card-body border-0 d-flex gap-3">
                                                     <div className="col-md-2" style={{height : 168, width : 128}}>
-                                                        <img src="src\rewards assets\2nd img.png" alt="image" className="img-fluid"/>
+                                                        <img src="/rewards assets\2nd img.png" alt="image" className="img-fluid"/>
                                                     </div>
                                                     <div className="w-100">
                                                         <h4 className="w-100 card-title text-black fw-semibold fs-5 text-start">Save payment in the app</h4>
@@ -233,7 +233,7 @@ export function Reward() {
                                             <div className="card border-0">
                                                 <div className="card-body border-0 d-flex gap-3">
                                                     <div className="col-md-2" style={{height : 168, width : 128}}>
-                                                        <img src="src\rewards assets\3rd img.png" alt="image" className="img-fluid"/>
+                                                        <img src="/rewards assets\3rd img.png" alt="image" className="img-fluid"/>
                                                     </div>
                                                     <div className="w-100">
                                                         <h4 className="w-100 card-title text-black fw-semibold fs-5 text-start">Preload</h4>
@@ -246,7 +246,7 @@ export function Reward() {
                                             <div className="card border-0">
                                                 <div className="card-body border-0 d-flex gap-3">
                                                     <div className="col-md-2" style={{height : 168, width : 128}}>
-                                                        <img src="src\rewards assets\4th img.png" alt="image" className="img-fluid"/>
+                                                        <img src="/rewards assets\4th img.png" alt="image" className="img-fluid"/>
                                                     </div>
                                                     <div className="w-100">
                                                         <h4 className="w-100 card-title text-black fw-semibold fs-5 text-start">Register your gift card</h4>

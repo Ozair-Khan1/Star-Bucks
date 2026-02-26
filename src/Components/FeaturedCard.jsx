@@ -12,7 +12,7 @@ export const FeaturedCard = ({item}) => {
     return (
             <div className="card border-0">
                 <div className="card-img">
-                    <img src={item.image} alt={item.title} className="card-img-top" />
+                    <img src={item.image} alt={item.title} className="img-fluid" />
                 </div>
                 <div className="card-body p-4 text-center" style={{backgroundColor : `${item.bg}`}}>
                     <div className="card-title">

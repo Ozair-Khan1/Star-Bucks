@@ -16,7 +16,7 @@ export function Navbar() {
                 <nav className="nav-underline navbar navbar-expand-xl bg-tranparent">
                     <div className="container-fluid mx-auto bg-tranparent">
                         <NavLink to="/" className="navbar-brand d-flex justify-content-center">
-                            <img src="src\assets\Logo2.svg" className="w-25 img-fluid" alt="Star Bucks"/>
+                            <img src="/assets\Logo2.svg" className="w-25 img-fluid" alt="Star Bucks"/>
                         </NavLink>
 
                         <button

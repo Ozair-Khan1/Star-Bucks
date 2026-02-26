@@ -39,14 +39,14 @@ export function Home() {
                             </div>
                         </div>
                         <div className="col-md-6 p-0 d-block">
-                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="src\assets\137-106183.jpg" className="img img-fluid" alt="Image"/>
+                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="/assets\137-106183.jpg" className="img img-fluid" alt="Image"/>
                         </div>
                     </div>
                 </motion.div>
                 <motion.div className="container mt-5" initial={{opacity : 0}} whileInView={{opacity : 1}}>
                     <div className="row align-items-center" style={{backgroundColor : "#006241"}}>
                         <div className="col-md-6 p-0 d-block">
-                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="src\assets\img-2.jpg" className="img img-fluid" alt="Image"/>
+                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="/assets\img-2.jpg" className="img img-fluid" alt="Image"/>
                         </div>
                         <div className="col-md-6">
                             <div className="p-5 d-flex flex-column align-items-center">
@@ -67,14 +67,14 @@ export function Home() {
                             </div>
                         </div>
                         <div className="col-md-6 p-0 d-block">
-                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="src\assets\137-106183.jpg" className="img img-fluid" alt="Image"/>
+                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="/assets\137-106183.jpg" className="img img-fluid" alt="Image"/>
                         </div>
                     </div>
                 </motion.div>
                 <motion.div className="container mt-5" initial={{opacity : 0}} whileInView={{opacity : 1}}>
                     <div className="row align-items-center">
                         <div className="col-md-6 p-0 d-block">
-                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="src\assets\img-3.jpg" className="img img-fluid" alt="Image"/>
+                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="/assets\img-3.jpg" className="img img-fluid" alt="Image"/>
                         </div>
                         <div className="col-md-6">
                             <div className="p-5 d-flex flex-column align-items-center">
@@ -94,14 +94,14 @@ export function Home() {
                             </div>
                         </div>
                         <div className="col-md-6 p-0 d-flex">
-                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="src\assets\img-4.jpg" className="img img-fluid" alt="Image"/>
+                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="/assets\img-4.jpg" className="img img-fluid" alt="Image"/>
                         </div>
                     </div>
                 </motion.div>
                 <motion.div className="container mt-5" initial={{opacity : 0}} whileInView={{opacity : 1}} style={{backgroundColor : "#006342"}}>
                     <div className="row align-items-center">
                         <div className="col-md-6 p-0 d-flex">
-                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="src\assets\img-5.png" className="img img-fluid" alt="Image"/>
+                            <motion.img initial={{scale : 1}} whileHover={{scale : 1.03}} transition={{type : "spring", duration : 1}} src="/assets\img-5.png" className="img img-fluid" alt="Image"/>
                         </div>
                         <div className="col-md-6">
                             <div className="p-5 d-flex align-items-center">
