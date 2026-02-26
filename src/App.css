@@ -1,0 +1,21 @@
+* {
+   scrollbar-width: thin;
+}
+.nav-link-custom{
+    color: var(--link-color, black);
+}
+
+.active {
+    color: green !important;
+}
+
+.nav-link:focus {
+    border-bottom-color: green !important;
+}
+
+
+@media screen and (max-width : 766px) {
+    .card-img-top {
+        width: 145px !important;
+    }
+}
