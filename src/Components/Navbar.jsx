@@ -31,7 +31,7 @@ export function Navbar() {
                         </button>
                         <div className="collapse navbar-collapse" id="navbar-content">
                             <ul className="navbar-nav me-auto d-flex justify-content-center align-items-center gap-3">
-                                <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/" className="nav-link fw-bold text-uppercase"><motion.span initial={{color : "black"}} whileHover={{color : "green"}}>Home</motion.span></NavLink></motion.li>
+                                <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/Home" className="nav-link fw-bold text-uppercase"><motion.span initial={{color : "black"}} whileHover={{color : "green"}}>Home</motion.span></NavLink></motion.li>
                                 <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/Menu" className="nav-link fw-bold text-uppercase"><motion.span initial={{color : "black"}} whileHover={{color : "green"}}>Menu</motion.span></NavLink></motion.li>
                                 <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/Reward" className="nav-link fw-bold text-uppercase"><motion.span  initial={{color : "black"}}whileHover={{color : "green"}}>Rewards</motion.span></NavLink></motion.li>
                                 <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/GiftCard" className="nav-link fw-bold text-uppercase"><motion.span initial={{color : "black"}} whileHover={{color : "green"}}>Gift Cards</motion.span></NavLink></motion.li>
@@ -41,8 +41,8 @@ export function Navbar() {
                                     <span><ImLocation2 className="me-1 fs-4"/></span>
                                     Find A Store
                                 </motion.button>
-                                <motion.button className="btn fw-bold border border-2 border-black rounded-5 mx-2" whileHover={{backgroundColor : "#B8FFB8", y : "-2px"}} transition={{duration : 0.1}} whileTap={{backgroundColor : "white", y : "0px"}}>Sign In</motion.button>
-                                <motion.button className="btn fw-bold border border-2 border-black rounded-5 mx-2 text-white"initial={{backgroundColor : "black"}} whileHover={{opacity : 0.8, y : "-2px"}} transition={{duration : 0.1}} whileTap={{y : "0px"}}>Join Now</motion.button>
+                                <motion.a href="" className="btn fw-bold border border-2 border-black rounded-5 mx-2" whileHover={{backgroundColor : "#B8FFB8", y : "-2px"}} transition={{duration : 0.1}} whileTap={{backgroundColor : "white", y : "0px"}}>Sign In</motion.a>
+                                <motion.a href="SignUp" className="btn fw-bold border border-2 border-black rounded-5 mx-2 text-white"initial={{backgroundColor : "black"}} whileHover={{opacity : 0.8, y : "-2px"}} transition={{duration : 0.1}} whileTap={{y : "0px"}}>Join Now</motion.a>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@ export function Navbar() {
             <motion.section initial={{y : "200px"}} whileInView={{y : "0px"}} transition={{type : "spring", duration : 1}}>
                 <footer className="site-footer container">
                     <div className="row bg-white justify-content-center gap-5">
-                        <div className="col-md-2">
+                        <div className="col-lg-2 col-md-4">
                             <ul className="list-group">
                                 <p className="list-group-item border-0 fs-4 fw-semibold text-black text-break">About Us</p>
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>Our Company</motion.a>
@@ -65,7 +65,7 @@ export function Navbar() {
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>Contact Us</motion.a>
                             </ul>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-lg-2 col-md-4">
                             <ul className="list-group">
                                 <p className="list-group-item border-0 fs-4 fw-semibold text-black text-break">Careers</p>
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>Culture & Values</motion.a>
@@ -76,7 +76,7 @@ export function Navbar() {
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>International Careers</motion.a>
                             </ul>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-lg-2 col-md-4">
                             <ul className="list-group">
                                 <p className="list-group-item border-0 fs-4 fw-semibold text-black text-break">Social Impacts</p>
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>Communities</motion.a>
@@ -85,18 +85,18 @@ export function Navbar() {
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>Environmental & Social Impact Reporting</motion.a>
                             </ul>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-lg-2 col-md-4">
                             <ul className="list-group">
-                                <p className="list-group-item border-0 fs-4 fw-semibold text-black text-break text-wrap text-lg-nowrap">For Business Partners</p>
+                                <p className="list-group-item border-0 fs-4 fw-semibold text-black text-break text-wrap text-lg-nowrap text-md-nowrap">For Business Partners</p>
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>LandLord Support Center</motion.a>
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>Suppliers</motion.a>
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>Corporate Gift Card Sale</motion.a>
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>Office & Food Service Coffee</motion.a>
                             </ul>
                         </div>
-                        <div className="col-md-2">
+                        <div className="col-lg-2 col-md-4">
                             <ul className="list-group">
-                                <p className="list-group-item border-0 fs-4 fw-semibold text-black text-break text-wrap text-lg-nowrap">Order & Pick Ups</p>
+                                <p className="list-group-item border-0 fs-4 fw-semibold text-black text-break text-wrap text-lg-nowrap text-md-nowrap">Order & Pick Ups</p>
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>Order On The App</motion.a>
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>Order On The Web</motion.a>
                                 <motion.a href="/" className="list-group-item border-0" initial={{color : "#000000ad"}} whileHover={{color : "#000000"}}>Delivery</motion.a>

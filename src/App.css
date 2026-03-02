@@ -1,21 +1,39 @@
 * {
    scrollbar-width: thin;
 }
-.nav-link-custom{
-    color: var(--link-color, black);
+
+
+a.nav-link.active {
+    border-bottom: 4px solid green !important;
 }
 
-.active {
-    color: green !important;
-}
 
-.nav-link:focus {
-    border-bottom-color: green !important;
-}
 
 
 @media screen and (max-width : 766px) {
     .card-img-top {
         width: 145px !important;
     }
+}
+
+@media screen and (max-width : 768px) {
+    .image-slider-padding {
+        padding: 0px 1.2rem !important;
+    }
+}
+
+.form-control:focus:not(:invalid):not(.is-invalid) {
+    border-width: 2.8px;
+    border-color: green !important;
+    box-shadow: none !important;
+}
+
+.is-invalid {
+    border-color: red !important;
+}
+
+.form-check-input:checked:not(:invalid):not(.is-invalid) {
+    background-color: green !important; /* Your custom color */
+    border-color: green !important;
+    box-shadow: none !important; /* Matches the background */
 }

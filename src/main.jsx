@@ -13,6 +13,7 @@ import { Cart } from './Components/Cart.jsx'
 import { CartProvider } from './Data/CartReducer.jsx'
 import { Navbar } from './Components/Navbar.jsx'
 import { Featured } from './Components/Featured.jsx'
+import { SignUp } from './Components/SignUp.jsx'
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
   {
     path : 'Cart',
     element : <Cart/>
+  },
+  {
+    path : 'SignUp',
+    element : <SignUp/>
   }
 ]);
 
