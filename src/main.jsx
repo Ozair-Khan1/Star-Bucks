@@ -14,6 +14,8 @@ import { CartProvider } from './Data/CartReducer.jsx'
 import { Navbar } from './Components/Navbar.jsx'
 import { Featured } from './Components/Featured.jsx'
 import { SignUp } from './Components/SignUp.jsx'
+import { Login } from './Components/Login.jsx'
+import { Previous } from './Components/Previous.jsx'
 
 const router = createBrowserRouter([
   {
@@ -44,6 +46,10 @@ const router = createBrowserRouter([
         path : "Featured",
         element : <Featured/>
       },
+      {
+        path : "Previous",
+        element : <Previous/>
+      }
     ],
   },
   {
@@ -53,6 +59,10 @@ const router = createBrowserRouter([
   {
     path : 'SignUp',
     element : <SignUp/>
+  },
+  {
+    path : 'Login',
+    element : <Login/>
   }
 ]);
 

@@ -125,6 +125,82 @@ export const menuBottled = [
     { id: Date.now() + 72, name: 'Evolution Fresh® Organic Super Fruit Greens', image: '/trending/EvolutionFreshOrange.png', price: 4.95, calories: 120, available: 'Not Available' }
 ];
 
+export const menuBreakfast = [
+  { id : Date.now() + 73, name : 'Egg, Pesto & Mozzarella Sandwich', image : '/trending/EggPesto.png', calories: 390, price: 5.25, available : 'Not Available' },
+  { id : Date.now() + 74, name : 'Bacon, Gouda & Egg Sandwich', image : '/trending/EggPesto.png', calories: 360, price: 5.25 },
+  { id : Date.now() + 75, name : 'Double-Smoked Bacon, Cheddar & Egg Sandwich', image : '/trending/BaconCheddarSandwich.png', calories: 500, price: 5.75 },
+  { id : Date.now() + 76, name : 'Sausage, Cheddar & Egg Sandwich', image : '/trending/SausageCheddar.png', calories: 480, price: 4.75 },
+  { id : Date.now() + 77, name : 'Turkey Bacon, Cheddar & Egg White Sandwich', image : '/trending/SmokeTurkey.png', calories: 230, price: 4.75, available : 'Not Available' },
+  { id : Date.now() + 78, name : 'Impossible™ Breakfast Sandwich', image : '/trending/BreakfastSandwich.png', calories: 420, price: 5.75 },
+  { id : Date.now() + 79, name : 'Avocado Spread', image : '/trending/AvacadoSpread.png', calories: 90, price: 1.25 },
+  { id : Date.now() + 80, name : 'Bacon, Sausage & Egg Wrap', image : '/trending/BaconSausageEggWrap.png', calories: 640, price: 6.75, available : 'Not Available' },
+  { id : Date.now() + 81, name : 'Spinach, Feta & Egg White Wrap', image : '/trending/SpinachFetaEggWhiteWrap.png', calories: 290, price: 4.45 },
+]
+
+export const menuBakery = [
+  { id : Date.now() + 82, name : 'Cookie Croissant Swirl', image : '/trending/CookieCroissantSwirl.png', calories: 410, price: 4.95 },
+  { id : Date.now() + 83, name : 'Yuzu Citrus Blossom', image : '/trending/YuzuCitrusBlossom.png', calories: 320, price: 4.45 },
+  { id : Date.now() + 84, name : 'Cinnamon Pull-Apart', image : '/trending/CinnamonPullApart.png', calories: 440, price: 4.25, available : 'Not Available' },
+  { id : Date.now() + 85, name : 'Cheese Danish', image : '/trending/CheeseDanish.png', calories: 290, price: 3.95 },
+  { id : Date.now() + 86, name : 'Ham & Swiss Croissant', image : '/trending/HamAndSwissCroissant.png', calories: 320, price: 4.95, available : 'Not Available' },
+  { id : Date.now() + 87, name : 'Chocolate Croissant', image : '/trending/ChocolateCroissant.png', calories: 340, price: 4.25 },
+  { id : Date.now() + 88, name : 'Chocolate Pistachio Loaf', image : '/trending/ChocolatePistachioLoaf.png', calories: 390, price: 4.45 },
+]
+
+export const menuTreats = [
+  { id : Date.now() + 89, name : 'Valentine Cake Pop', image : '/trending/ValentinesDayCake.png', calories: 160, price: 3.25, available : 'Not Available' },
+  { id : Date.now() + 90, name : 'Birthday Cake Pop', image : '/trending/BirthdayCakePop.png', calories: 160, price: 2.95 },
+  { id : Date.now() + 91, name : 'Chocolate Cake Pop', image : '/trending/ChocolateCakePop.png', calories: 150, price: 2.95 },
+  { id : Date.now() + 92, name : 'Dubai Chocolate Bite', image : '/trending/DubaiChocolateBite.png', calories: 190, price: 3.75 },
+  { id : Date.now() + 93, name : 'Berry Blondie', image : '/trending/BerryBlondie.png', calories: 280, price: 3.45, available : 'Not Available' },
+  { id : Date.now() + 94, name : 'Chocolate Chip Cookie', image : '/trending/ChocolateChipCookie.png', calories: 310, price: 2.75 },
+]
+
+export const menuLunch = [
+  { id : Date.now() + 95, name : 'Crispy Grilled Cheese on Sourdough', image : '/lunch/GrilledCheeseOnSourdough.png', calories: 520, price: 6.95 },
+  { id : Date.now() + 96, name : 'Ham & Swiss on Baguette', image : '/lunch/HamSwissOnBaguette.png', calories: 480, price: 7.45 },
+  { id : Date.now() + 97, name : 'Tomato & Mozzarella on Focaccia', image : '/lunch/TomatoMozzarellaFocacciaPanin.png', calories: 380, price: 6.75 },
+  { id : Date.now() + 98, name : 'Spicy Falafel Pocket', image : '/lunch/SpicyFalafelPocket.png', calories: 340, price: 5.95, available : 'Not Available' },
+  { id : Date.now() + 99, name : 'Jalapeño Chicken Pocket', image : '/lunch/JalapenoChickenPocket.png', calories: 390, price: 5.95 },
+  { id : Date.now() + 100, name : 'Avocado Spread', image : '/lunch/AvocadoSpread.png', calories: 90, price: 1.25 },
+]
+
+export const menuLoveBites = [
+  { id : Date.now() + 101, name : 'Cheese Trio Protein Box', image : '/lovebites/CheeseTrioProteinBox.png', calories: 450, price: 7.95 },
+  { id : Date.now() + 102, name : 'Eggs & Cheddar Protein Box', image : '/lovebites/EggsCheddarProteinBox.png', calories: 470, price: 7.45 },
+  { id : Date.now() + 103, name : 'Cheese & Fruit Protein Box', image : '/lovebites/CheeseFruitProteinBox.png', calories: 470, price: 7.45, available: 'Not Available' },
+  { id : Date.now() + 104, name : 'Khloud™ Sweet & Salty Kettle Corn Protein Popcorn', image : '/lovebites/KhloudKettleCornPopcorn.png', calories: 150, price: 3.95 },
+  { id : Date.now() + 105, name : 'All In™ Madagascar Vanilla, Honey & Almonds Bar', image : '/lovebites/AllInBarVanillaHoneyAlmonds.png', calories: 230, price: 3.25, available: 'Not Available' },
+  { id : Date.now() + 106, name : 'Perfect Bar® – Dark Chocolate Chip Peanut Butter', image : '/lovebites/DarkChocolateChipPeanutButter.png', calories: 330, price: 3.45 },
+  { id : Date.now() + 107, name : 'Perfect Bar® Peanut Butter', image : '/lovebites/PerfectBar_PeanutButter.png', calories: 330, price: 3.45 },
+]
+
+export const menuWholeBean = [
+  { id : Date.now() + 110, name : 'Starbucks® Sunsera Blend', image : '/wholebean/SunseraBlendUS.png', calories: 0, price: 15.95 },
+  { id : Date.now() + 111, name : 'Starbucks® Green Apron Blend™', image : '/wholebean/GreenApronBlend.png', calories: 0, price: 14.95 },
+  { id : Date.now() + 112, name : 'Veranda Blend®', image : '/wholebean/VerandaBlend.png', calories: 0, price: 13.95, available: 'Not Available' },
+  { id : Date.now() + 113, name : 'Starbucks® Blonde Espresso Roast', image : '/wholebean/BlondeEspressoRoast.png', calories: 0, price: 14.95 },
+  { id : Date.now() + 114, name : 'Starbucks® Sun-Dried Ethiopia Highlands', image : '/wholebean/SunDriedEthiopiaHighlands.png', calories: 0, price: 16.95 },
+  { id : Date.now() + 115, name : 'Starbucks Siren’s Blend™', image : '/wholebean/SirensBlend2022.png', calories: 0, price: 15.45 },
+  { id : Date.now() + 116, name : 'Guatemala Antigua', image : '/wholebean/GuatemalaAntigua.png', calories: 0, price: 14.95, available: 'Not Available' },
+  { id : Date.now() + 117, name : 'Pike Place® Roast', image : '/wholebean/PikePlaceRoast.png', calories: 0, price: 13.95 },
+  { id : Date.now() + 118, name : 'Decaf Pike Place® Roast', image : '/wholebean/DecafPikePlaceRoast.png', calories: 0, price: 13.95 },
+  { id : Date.now() + 119, name : 'Organic Yukon Blend®', image : '/wholebean/YukonBlend.png', calories: 0, price: 15.95 },
+  { id : Date.now() + 120, name : 'Starbucks 1971 Roast™', image : '/wholebean/1971RoastUS.png', calories: 0, price: 16.95 },
+]
+
+export const menuStarBucksInstant = [
+  { id : Date.now() + 121, name : 'Starbucks VIA® Instant Sweetened Iced Coffee', image : '/starbucksinstant/ViaInstantSweetenedIcedCoffee.png', calories: 60, price: 10.95 },
+  { id : Date.now() + 122, name : 'Starbucks VIA® Instant Veranda Blend®', image : '/starbucksinstant/ViaInstantBlondeVerandaBlend.png', calories: 0, price: 9.95 },
+  { id : Date.now() + 123, name : 'Starbucks VIA® Instant Pike Place® Roast', image : '/starbucksinstant/ViaInstantPikePlaceRoast.png', calories: 0, price: 9.95, available: 'Not Available' },
+  { id : Date.now() + 124, name : 'Starbucks VIA® Instant Italian Roast', image : '/starbucksinstant/ViaInstantItalianRoast.png', calories: 0, price: 9.95 },
+  { id : Date.now() + 125, name : 'Starbucks VIA® Instant Decaf Italian Roast', image : '/starbucksinstant/ViaInstantDecafItalianRoast.png', calories: 0, price: 9.95, available: 'Not Available' },
+]
+
+export const menuShoppingBag = [
+  { id : Date.now() + 126, name : 'Small Shopping Bag', image : '/starbucksinstant/SirenShopperBag.png', price : 0 }
+]
+
 export const featuredMenuData = [
   {
     id: Date.now() + 1,
@@ -247,5 +323,13 @@ export const allData = {
     "Hot Tea" : menuHotTea,
     "Frappuccino® Blended Beverage" : menuFrappuccino,
     "Hot Chocolate, Lemonade & More" : menuHotChocolate,
-    "Bottled Beverages" : menuBottled
+    "Bottled Beverages" : menuBottled,
+    "Breakfast" : menuBreakfast,
+    "Bakery" : menuBakery,
+    "Treats" : menuTreats,
+    "Lunch" : menuLunch,
+    "Lite Bites" : menuLoveBites,
+    "Whole Bean" : menuWholeBean,
+    "Starbucks VIA® Instant" : menuStarBucksInstant,
+    "Shopping Bag" : menuShoppingBag
 }

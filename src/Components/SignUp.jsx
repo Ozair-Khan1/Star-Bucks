@@ -89,6 +89,7 @@ export const SignUp = () => {
         } else if (!hasError && !isEmailTaken) {
             const updatedUser = [...existingUsers, createNewUser]
             localStorage.setItem('AllUser', JSON.stringify(updatedUser))
+            localStorage.setItem('CurrentUser', JSON.stringify(formData))
             setFormData({
             firstName : '',
             lastName : '',
@@ -101,8 +102,17 @@ export const SignUp = () => {
         }
     }
 
+    const handleNav = () => {
+         navigate('/Home')
+    }
+
     return (
         <>
+            <div className="container-fluid">
+                <div className="col p-4 nav-img-border">
+                        <img src="/assets\Logo2.svg" className="nav-img" alt="Star Bucks" onClick={handleNav} style={{cursor : 'pointer'}}/>
+                    </div>
+            </div>
             <div className="container">
                 <div className="row justify-content-center py-5">
                     <div className="py-5" style={{width : '460px'}}>

@@ -1,8 +1,15 @@
 import { Link, useNavigate } from "react-router-dom"
 import { UseCart } from "../Data/CartReducer"
 import { AnimatePresence, motion } from "framer-motion"
+import { useState } from "react";
 
 export const Cart = () => {
+    const userExist = JSON.parse(localStorage.getItem('CurrentUser'));
+
+    const user = userExist ? JSON.parse : ''
+
+    const [showModal, setShowModal] = useState(false)
+
     const {cart, dispatch} = UseCart()
 
     const addToCart = (item) => {
@@ -19,9 +26,31 @@ export const Cart = () => {
         })
     };
 
+    const clearCart = () => {
+        setShowModal(false)
+        dispatch({
+            type : 'CLEAR_CART'
+        })
+    }
+
     const subtotal = cart.reduce((acc, item) => acc + (item.price || 0), 0);
     const tax = subtotal * 0.09;
     const total = subtotal + tax;
+
+    const handleCheckOut = () => {
+        setShowModal(true)
+    }
+
+    const handleCloseBtn = () => {
+        if (user) {
+            setShowModal(false)
+            dispatch({
+                type : 'CLEAR_CART'
+            })
+        } else {
+            setShowModal(false)
+        }
+    }
 
     return (
         <>
@@ -61,7 +90,7 @@ export const Cart = () => {
                     </div>
                 </div>
 
-                <div className="col-md-8 bg-white p-5 text-center">
+                <div className="col-md-8 d-flex flex-column-reverse flex-lg-column flex-xl-column bg-white p-5 text-center">
                     <AnimatePresence>
                         {cart && cart.length === 0 ? (
                             <div className="mt-5 pt-5">
@@ -72,9 +101,9 @@ export const Cart = () => {
                             cart.map((item, index) => (
                                 <motion.div layout initial={{opacity : 0, x : -20}} animate={{opacity : 1, x : 0}} exit={{opacity : 0, x : 50}} transition={{duration : 0.3}} className="col-md-8 mx-auto mt-4" key={`${item.id} - ${index}`}>
                                     <div className="card rounded-4 shadow-lg">
-                                        <div className="d-flex flex-column flex-lg-row text-break">
+                                        <div className="d-flex flex-column  flex-lg-row text-break">
                                             <div className="col-md-4">
-                                                <img src={item.image} className="w-100 h-100 rounded-pill img-fluid me-3" />
+                                                <img src={item.image} className="w-100 rounded-pill img-fluid me-3" />
                                             </div>
                                             <div className="col-md-6 mx-auto">
                                                 <div className="card-body">
@@ -127,13 +156,44 @@ export const Cart = () => {
                                 <p className="text-muted mt-4 small">
                                     You authorize this payment to be sent to Wwwwinc, Inc.
                                 </p>
-                                <button className="btn btn-dark w-100 rounded-pill py-3 mt-2 fw-bold">
+                                <button onClick={handleCheckOut} className="btn btn-dark w-100 rounded-pill py-3 mt-2 fw-bold">
                                     Checkout
                                 </button>
                             </div>
                         </div>
                     )}
                 </div>
+                {showModal && (
+                    <motion.div animate={{y : [-300, 0]}} className="modal fade mt-0 show d-block" tabIndex='-1' aria-hidden='true' style={{backdropFilter : 'blur(8px)'}}>
+                         <div class="modal-dialog modal-dialog-centered">
+                             <div class="modal-content" style={{backgroundColor : '#1e3932'}}>
+                            <div class="modal-header border-0 d-flex justify-content-between">
+                                 <h1 class="modal-title fs-2 fw-semibold text-white">Starbucks</h1>
+                                 <button type="button" class="btn-white btn bg-transparent d-inline-flex" onClick={handleCloseBtn}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg></button>
+                            </div>
+                            {user ? (
+                                <div class="modal-body text-white fs-5">
+                                    Thank you for ordering
+                                </div>
+                            ) : (
+                                <div class="modal-body text-white fs-5">
+                                    Please login or sign up to continue
+                                </div>
+                            )}
+                            {user ? (
+                                <div class="modal-footer border-0">
+                                    <motion.button className="btn fw-bold border border-2 border-black rounded-5 mx-2" whileHover={{backgroundColor : "#B8FFB8", y : "-2px"}} transition={{duration : 0.1}} whileTap={{backgroundColor : "white", y : "0px"}} style={{backgroundColor : 'white'}} onClick={clearCart}>Close</motion.button>
+                                </div>
+                            ) : (
+                                <div class="modal-footer border-0">
+                                    <motion.a href="Login" className="btn fw-bold border border-2 border-black rounded-5 mx-2" whileHover={{backgroundColor : "#B8FFB8", y : "-2px"}} transition={{duration : 0.1}} whileTap={{backgroundColor : "white", y : "0px"}} style={{backgroundColor : 'white'}}>Sign In</motion.a>
+                                    <motion.a href="SignUp" className="btn fw-bold border border-2 border-black rounded-5 mx-2 text-white"initial={{backgroundColor : "black"}} whileHover={{opacity : 0.8, y : "-2px"}} transition={{duration : 0.1}} whileTap={{y : "0px"}}>Join Now</motion.a>
+                                </div>
+                            )}
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
             </div>
         </>
     )

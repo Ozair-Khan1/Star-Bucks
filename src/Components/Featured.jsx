@@ -1,5 +1,6 @@
 import { FeaturedCard } from "./FeaturedCard"
 import { featuredMenuData } from "../Data/Data"
+import { motion } from "framer-motion"
 
 export const Featured = () => {
     const Items = featuredMenuData
@@ -9,9 +10,9 @@ export const Featured = () => {
                 <div className="container">
                     <div className="row">
                         {Items.map((item) => (
-                            <div className="col-md-6 p-4" key={item.id}>
+                            <motion.div whileInView={{opacity : [0, 1]}} transition={{duration : 0.8}} className="col-md-6 p-4" key={item.id}>
                                 <FeaturedCard  item={item}/>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

@@ -1,14 +1,6 @@
-import { UseCart } from "../Data/CartReducer"
+import { Link } from "react-router-dom";
 
 export const FeaturedCard = ({item}) => {
-    const {dispatch} = UseCart();
-
-    const addToCart = (item) => {
-        dispatch({
-            type : 'ADD_TO_CART',
-            payload : item
-        })
-    };
     return (
             <div className="card border-0">
                 <div className="card-img">
@@ -26,7 +18,7 @@ export const FeaturedCard = ({item}) => {
                         </p>
                     </div>
                     <div className="card-footer">
-                        <button className="btn btn-success">Order Now</button>
+                        <Link to='/Menu' className="btn btn-success">Order Now</Link>
                     </div>
                 </div>
             </div>

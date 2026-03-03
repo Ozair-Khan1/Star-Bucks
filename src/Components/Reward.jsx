@@ -1,4 +1,4 @@
-import { AnimatePresence, color, motion, number } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import {useNavigate} from "react-router-dom"
 import { Link } from "react-router-dom"
 import { favoritesFree } from "../Data/Data"
@@ -37,6 +37,8 @@ export function Reward() {
     const navigate = () => {
         setNavigate('/')
     }
+
+    const [isloaded, setIsLoaded] = useState(false)
     return (
         <>
             <section>
@@ -47,17 +49,17 @@ export function Reward() {
                 </div>
                 <div className="container">
                     <div className="row mx-auto justify-content-center">
-                        <div className="col-md-6 p-5 text-break d-flex flex-column gap-4">
+                        <motion.div whileInView={{opacity : [0, 1]}} transition={{duration : 0.8}} className="col-md-6 p-5 text-break d-flex flex-column gap-4">
                             <p className="display-5 fw-bold" style={{color : "#32462F"}}>It’s a great day for free coffee</p>
                             <p className="fs-5 fw-semibold" style={{color : "#32462F"}}>Sign up and start enjoying the perks of Starbucks® Rewards</p>
                             <div className="col-md-4">
                                 <motion.button className="btn rounded-pill fw-bold text-white" initial={{backgroundColor : "#00754A"}} whileHover={{backgroundColor : "#036640", y : "-4px"}} transition={{type : "spring", duration : 0.5}} onClick={navigate}>Join Now</motion.button>
                             </div>
-                        </div>
-                        <div className="col-md-6 p-4 d-flex align-items-center">
+                        </motion.div>
+                        <motion.div whileInView={{opacity : [0, 1]}} transition={{duration : 0.8}} className="col-md-6 p-4 d-flex align-items-center">
                             <img src="/assets\rewards-hero.png" alt="" className="img img-fluid"/>
-                        </div>
-                        <div className="col-md-8 d-flex justify-content-center py-5">
+                        </motion.div>
+                        <motion.div whileInView={{opacity : [0, 1]}} transition={{duration : 0.8}} className="col-md-8 d-flex justify-content-center py-5">
                             <div className="card border-0">
                                 <div className="card-body border-0">
                                     <div className="card-title justify-content-center d-flex flex-column">
@@ -101,8 +103,8 @@ export function Reward() {
                                     </div>
                                 </div>
                             </div>
-                        </div> 
-                        <div className="w-100 mx-auto py-5">
+                        </motion.div> 
+                        <motion.div whileInView={{opacity : [0, 1]}} transition={{duration : 0.8}} className="w-100 mx-auto py-5">
                             <div className="px-3 d-flex justify-content-center">
                                 <h1 className="fs-2 text-black">Get your favorites for free</h1>
                             </div>
@@ -124,9 +126,17 @@ export function Reward() {
                                     <div style={{backgroundColor : '#d4e9e2', boxShadow : 'inset 0 7px 9px -7px #00000024', minHeight: "320px", position: "relative"}}>
                                         <AnimatePresence mode="wait">
                                             {currentFavorites.map((item) => (
-                                                <motion.div initial={{opacity : 0}} animate={{ opacity: 1}} exit={{opacity : 0, position : 'absolute'}} className="col-md-12 px-5 d-flex gap-4 flex-column flex-lg-row flex-xl-row align-items-center justify-content-center mx-auto py-5" key={item.price}>
+                                                <motion.div initial={{opacity : 0}} animate={{ opacity: 1}} exit={{opacity : 0}} className="col-md-12 px-5 d-flex gap-4 flex-column flex-lg-row flex-xl-row align-items-center justify-content-center mx-auto py-5" key={item.price}>
                                                     <div className="col-md-4 d-flex align-items-center">
-                                                        <img src={item.image} alt="image" className="img-fluid"/>
+                                                        {!isloaded && (
+                                                            <div className="placeholder-glow w-100 h-100 position-absolute top-0 start-0">
+                                                            <div 
+                                                                className="placeholder w-100 h-100 rounded-circle" 
+                                                                style={{ backgroundColor: '#e9ecef', minHeight: '100px' }}
+                                                            ></div>
+                                                            </div>
+                                                        )}
+                                                        <img src={item.image} alt="image" className="img-fluid" onLoad={() => setIsLoaded(true)}/>
                                                     </div>
                                                     <div className="col-md-4 d-flex flex-column gap-2"> 
                                                         <h4 className="fw-bold">{item.title}</h4>
@@ -138,8 +148,8 @@ export function Reward() {
                                     </div>
                                 </div>  
                             </div>
-                        </div>
-                        <div className="col-md-8 d-flex justify-content-center py-5">
+                        </motion.div>
+                        <motion.div whileInView={{opacity : [0, 1]}} transition={{duration : 0.8}} className="col-md-8 d-flex justify-content-center py-5">
                             <div className="card border-0">
                                 <div className="card-body border-0">
                                     <div className="card-title justify-content-center d-flex flex-column">
@@ -183,8 +193,8 @@ export function Reward() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="col-md-8 py-5">
+                        </motion.div>
+                        <motion.div whileInView={{opacity : [0, 1]}} transition={{duration : 0.8}} className="col-md-8 py-5">
                             <div className="card border-0">
                                 <div className="card-body border-0">
                                     <div className="card-title justify-content-center d-flex flex-column">
@@ -258,7 +268,7 @@ export function Reward() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>

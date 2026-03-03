@@ -37,3 +37,54 @@ a.nav-link.active {
     border-color: green !important;
     box-shadow: none !important; /* Matches the background */
 }
+
+.details-tooltip .tooltip-inner {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid #cba258;
+    letter-spacing: 1px !important;
+}
+
+.details-tooltip .tooltip-arrow::before {
+    border-right-color: #cba258 !important;
+}
+
+.name-tooltip .tooltip-inner {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid #cba258;
+    letter-spacing: 1px !important;
+}
+
+.name-tooltip .tooltip-arrow::before {
+    border-bottom-color: #cba258 !important;
+}
+
+.nav-img {
+    width: 70px;
+}
+
+.nav-img-home {
+    width: 70px;
+    margin: 0px 100px !important;
+}
+
+@media screen and (max-width : 340px) {
+    .nav-img-home {
+        margin: 0px 30px !important;
+    }
+}
+
+.nav-img-border {
+    border-bottom: 1px solid rgb(196, 191, 191);
+}
+
+@media screen and (max-width : 992px) {
+    .nav-img {
+        width: 60px !important;
+    }
+}
+
+.btn-white {
+    color: white !important;
+}

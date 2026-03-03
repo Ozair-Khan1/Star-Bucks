@@ -6,45 +6,66 @@ import { NavLink, Outlet } from "react-router-dom";
 import { BiLogoInstagram, BiLogoInstagramAlt } from "react-icons/bi";
 import { TbBrandYoutubeFilled } from "react-icons/tb";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { useState } from "react";
 
 
 
 export function Navbar() {
+    const userExist = JSON.parse(localStorage.getItem('CurrentUser'));
+
+    const [isCollapsed, setIsCollapsed] = useState(true)
+
+    const handleToggle = () => {
+        setIsCollapsed(!isCollapsed);
+    }
+    
+    const user = userExist ? JSON.parse : ''
+
+    const handleLogout = () => {
+        localStorage.removeItem('CurrentUser')
+        window.location.reload();
+    }
     return(
         <>
             <section>
                 <nav className="nav-underline navbar navbar-expand-xl bg-tranparent">
                     <div className="container-fluid mx-auto bg-tranparent">
-                        <NavLink to="/" className="navbar-brand d-flex justify-content-center">
-                            <img src="/assets\Logo2.svg" className="w-25 img-fluid" alt="Star Bucks"/>
+                        <NavLink to="/" className="navbar-brand d-flex justify-content-center nav-img-home">
+                            <img src="/assets\Logo2.svg" className="img-fluid" alt="Star Bucks"/>
                         </NavLink>
 
                         <button
                         className="navbar-toggler justify-content-center align-items-center mx-auto border-0"
                         type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbar-content"
-                        aria-controls="navbar-content"
-                        aria-expanded="false"
-                        aria-label="toggle-navigation">
+                        onClick={handleToggle}
+                        aria-expanded={!isCollapsed}
+                        aria-label="Toggle navigation">
                             <span><BsMenuButtonFill className="w-100 h-100"/></span>
                         </button>
-                        <div className="collapse navbar-collapse" id="navbar-content">
+                        <motion.div animate={{y : isCollapsed ? '' : [-200, 0]}} className={`collapse navbar-collapse ${isCollapsed ? '' : 'show'}`} id="navbar-content">
                             <ul className="navbar-nav me-auto d-flex justify-content-center align-items-center gap-3">
-                                <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/Home" className="nav-link fw-bold text-uppercase"><motion.span initial={{color : "black"}} whileHover={{color : "green"}}>Home</motion.span></NavLink></motion.li>
-                                <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/Menu" className="nav-link fw-bold text-uppercase"><motion.span initial={{color : "black"}} whileHover={{color : "green"}}>Menu</motion.span></NavLink></motion.li>
-                                <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/Reward" className="nav-link fw-bold text-uppercase"><motion.span  initial={{color : "black"}}whileHover={{color : "green"}}>Rewards</motion.span></NavLink></motion.li>
-                                <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/GiftCard" className="nav-link fw-bold text-uppercase"><motion.span initial={{color : "black"}} whileHover={{color : "green"}}>Gift Cards</motion.span></NavLink></motion.li>
+                                <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/Home" className="nav-link fw-bold text-uppercase"><motion.span initial={{color : "black"}} whileHover={{color : "green"}} onClick={() => setIsCollapsed(true)}>Home</motion.span></NavLink></motion.li>
+                                <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/Menu" className="nav-link fw-bold text-uppercase"><motion.span initial={{color : "black"}} whileHover={{color : "green"}} onClick={() => setIsCollapsed(true)}>Menu</motion.span></NavLink></motion.li>
+                                <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/Reward" className="nav-link fw-bold text-uppercase"><motion.span  initial={{color : "black"}}whileHover={{color : "green"}} onClick={() => setIsCollapsed(true)}>Rewards</motion.span></NavLink></motion.li>
+                                <motion.li className="nav-item" whileHover={{y : "-2px"}}><NavLink to="/GiftCard" className="nav-link fw-bold text-uppercase"><motion.span initial={{color : "black"}} whileHover={{color : "green"}} onClick={() => setIsCollapsed(true)}>Gift Cards</motion.span></NavLink></motion.li>
                             </ul>
                             <div className="d-flex justify-content-evenly flex-column gap-4 gap-lg-0 gap-xl-0 gap-md-0 flex-lg-row flex-xl-row flex-md-row align-items-center mt-4 mt-lg-0">
                                 <motion.button className="btn d-inline-flex justify-content-center align-items-center border-0 fw-bold mx-2" whileHover={{color : "green", y : "-2px"}} whileTap={{y : "0px"}}>
                                     <span><ImLocation2 className="me-1 fs-4"/></span>
                                     Find A Store
                                 </motion.button>
-                                <motion.a href="" className="btn fw-bold border border-2 border-black rounded-5 mx-2" whileHover={{backgroundColor : "#B8FFB8", y : "-2px"}} transition={{duration : 0.1}} whileTap={{backgroundColor : "white", y : "0px"}}>Sign In</motion.a>
-                                <motion.a href="SignUp" className="btn fw-bold border border-2 border-black rounded-5 mx-2 text-white"initial={{backgroundColor : "black"}} whileHover={{opacity : 0.8, y : "-2px"}} transition={{duration : 0.1}} whileTap={{y : "0px"}}>Join Now</motion.a>
+                                {user ? (
+                                    <>
+                                        <motion.button onClick={handleLogout} className="btn fw-bold border border-2 border-black rounded-5 mx-2" whileHover={{backgroundColor : "#00754A", y : "-2px"}} transition={{duration : 0.1}} whileTap={{backgroundColor : "white", y : "0px"}}>Log out</motion.button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <motion.a href="Login" className="btn fw-bold border border-2 border-black rounded-5 mx-2" whileHover={{backgroundColor : "#B8FFB8", y : "-2px"}} transition={{duration : 0.1}} whileTap={{backgroundColor : "white", y : "0px"}}>Sign In</motion.a>
+                                        <motion.a href="SignUp" className="btn fw-bold border border-2 border-black rounded-5 mx-2 text-white"initial={{backgroundColor : "black"}} whileHover={{opacity : 0.8, y : "-2px"}} transition={{duration : 0.1}} whileTap={{y : "0px"}}>Join Now</motion.a>
+                                    </>
+                                )}
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </nav>
             </section>

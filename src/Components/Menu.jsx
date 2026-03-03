@@ -32,7 +32,6 @@ export function Menu() {
             type : 'ADD_TO_CART',
             payload : item
         })
-        console.log(cart)
     }
 
     const onCartClick = () => {
@@ -43,24 +42,26 @@ export function Menu() {
         navigate('/Featured')
     }
 
+    const onPreviousClick = () => {
+        navigate('/Previous')
+    }
+
     return (
         <>
             <section>
-                <div className="bg-light border-bottom sticky-top">
-                    <div className="container d-flex mx-auto justify-content-center py-2">
+                <div className="bg-light border-bottom border-3 sticky-none sticky-lg-top sticky-xl-top">
+                    <div className="container d-flex mx-auto justify-content-start justify-content-lg-center justify-conten-xl-center py-2">
                         <ul className="nav nav-underline gap-5 flex-column flex-md-row flex-sm-row flex-lg-row">
-                        <li className="nav-item"><motion.a className="nav-link" initial={{color : "black"}} whileHover={{color : "green"}} href="#" onClick={() => setFilter("Menu")} style={{cursor : "pointer"}}><span>Menu</span></motion.a></li>
-                        <li className="nav-item"><motion.a className="nav-link" initial={{color : "black"}} whileHover={{color : "green"}} href="#" onClick={onFeaturedClick}>Featured</motion.a></li>
-                        <li className="nav-item"><motion.a className="nav-link" initial={{color : "black"}} whileHover={{color : "green"}} href="#">Previous</motion.a></li>
-                        <li className="nav-item"><motion.a className="nav-link" initial={{color : "black"}} whileHover={{color : "green"}} href="#">Favorites</motion.a></li>
+                            <li className="nav-item"><motion.a className="nav-link" initial={{color : "black"}} whileHover={{color : "green"}} href="#" onClick={() => setFilter("Menu")} style={{cursor : "pointer"}}><span>Menu</span></motion.a></li>
+                            <li className="nav-item"><motion.a className="nav-link" initial={{color : "black"}} whileHover={{color : "green"}} href="#" onClick={onFeaturedClick}>Featured</motion.a></li>
+                            <li className="nav-item"><motion.a className="nav-link" initial={{color : "black"}} whileHover={{color : "green"}} href="#" onClick={onPreviousClick}>Previous</motion.a></li>
                         </ul>
                     </div>
                     </div>
-
                     <div className="container">
                         <div className="row">
                             <div className="col-md-4">
-                            <ul>
+                            <ul className="ps-0">
                                 <li className="mt-4 list-unstyled d-flex flex-column gap-2">
                                     <span className="fw-bold fs-5">Fan Favorites</span>
                                     <ul className="p-0">
@@ -94,12 +95,12 @@ export function Menu() {
                             </ul>
                             </div>
                             <div className="col-md-8">
-                                <div className="row">
+                                <div className="row d-flex flex-column flex-lg-row flex-xl-row">
                                 <p className="fs-4 fw-bolder text-black mt-4">{filter}</p>
-                                {currentItem.map((item) => (
-                                    <div key={item.id} className="col-md-6 mb-4 d-flex align-items-center gap-4" style={{cursor : 'pointer'}} onClick={() => filter === "Menu" ? setFilter(item.name) : addToCart(item)}>
+                                {currentItem && currentItem.map((item) => (
+                                    <motion.div animate={{opacity : [0, 1]}} whileInView={{opacity : [0, 1]}} transition={{duration : 0.8}} key={item.id} className="col-md-6 mb-4 d-flex align-items-center gap-4" style={{cursor : 'pointer'}} onClick={() => filter === "Menu" ? setFilter(item.name) : item.available ? null : addToCart(item) }>
                                     <MenuCard item={item}/>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                             </div>
