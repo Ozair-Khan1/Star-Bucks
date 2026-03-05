@@ -58,10 +58,17 @@ export const Login = () => {
             return;
         }
 
-        const existingUsers = JSON.parse(localStorage.getItem('AllUser') || []);
-        const validUser = existingUsers.find((user) => user.email === loginData.email || user.name === loginData.email && user.password === loginData.password)
+        const existingUsers = JSON.parse(localStorage.getItem('AllUser'));
+        const saved = existingUsers ? JSON.parse : ''
+        
+        let validUser = ''
 
-        if (!validUser) {
+        if (saved) {
+            validUser = existingUsers.find((user) => user.email === loginData.email || user.name === loginData.email && user.password === loginData.password)
+        }
+
+
+        if (!validUser || !existingUsers) {
             setError({
                 email : true,
                 password : true

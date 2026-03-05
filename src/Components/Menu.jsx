@@ -10,7 +10,7 @@ import { MenuFooter } from "./MenuFooter";
 export function Menu() {
     const drinks = ['Protein Beverages', 'Hot Coffee', 'Cold Coffee', 'Matcha', 'Hot Tea', 'Cold Tea', 'Refreshers', 'Frappuccino® Blended Beverage', 'Hot Chocolate, Lemonade & More', 'Bottled Beverages']
     const foods = ['Breakfast', 'Bakery', 'Treats', 'Lunch', 'Lite Bites'];
-    const coffee = ['Whole Bean', 'Starbucks VIA® Instant', 'Shopping Bag'];
+    const coffee = ['Whole Bean', 'Starbucks VIA® Instant', 'Shopping Bag']
     
     const [filter, setFilter] = useState('Menu');
     const [isBumping, setIsBumping] = useState(false);
