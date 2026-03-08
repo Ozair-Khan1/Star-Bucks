@@ -16,6 +16,7 @@ import { Featured } from './Components/Featured.jsx'
 import { SignUp } from './Components/SignUp.jsx'
 import { Login } from './Components/Login.jsx'
 import { Previous } from './Components/Previous.jsx'
+import { AuthProvider } from './AuthContext.jsx'
 
 const router = createBrowserRouter([
   {
@@ -69,8 +70,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-      <CartProvider>
-        <RouterProvider router={router} />
-      </CartProvider>
+      <AuthProvider>
+        <CartProvider>
+          <RouterProvider router={router} />
+        </CartProvider>
+      </AuthProvider>
   </StrictMode>,
 )

@@ -3,11 +3,15 @@ import { useEffect, useState } from "react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext";
+import { account } from "../appwrite";
 
 export const Login = () => {
     const detailsRef = useRef();
     const usernameRef = useRef();
     const navigate = useNavigate();
+    const {setUser} = useAuth();
+    const [isSubmiting, setIsSubmiting] = useState(false)
 
     useEffect(() => {
         const detailstooltip = new Tooltip(detailsRef.current, {
@@ -26,8 +30,9 @@ export const Login = () => {
     }, []);
 
     const [loginData, setLoginData] = useState({
-        email : '',
-        password : ''
+        email : localStorage.getItem('rememberMe') || '',
+        password : '',
+        rememberMe : false
     });
 
     const [error, setError] = useState({
@@ -47,10 +52,13 @@ export const Login = () => {
         }))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
+        setIsSubmiting(true)
+
         if (!loginData.email.trim() || !loginData.password.trim()) {
+            setIsSubmiting(false)
             setError({
             email: !loginData.email.trim(),
             password: !loginData.password.trim()
@@ -58,31 +66,34 @@ export const Login = () => {
             return;
         }
 
-        const existingUsers = JSON.parse(localStorage.getItem('AllUser'));
-        const saved = existingUsers ? JSON.parse : ''
-        
-        let validUser = ''
+        try {
+            await account.createEmailPasswordSession(loginData.email, loginData.password);
 
-        if (saved) {
-            validUser = existingUsers.find((user) => user.email === loginData.email || user.name === loginData.email && user.password === loginData.password)
+            if (loginData.rememberMe) {
+                localStorage.setItem('rememberMe', loginData.email);
+            } else {
+                localStorage.removeItem('rememberMe');
+            }
+
+            const userDetails = await account.get();
+
+            setUser(userDetails);
+
+            navigate('/Home')
+        } catch (error) {
+            if (error.code === 401) {
+                setError({
+                    email : true,
+                    password : true
+                });
+            } else if (error.code === 429) {
+                alert('Something went wrong, Please try again later')
+            } else {
+                console.log(error.message)
+            }
+        } finally {
+            setIsSubmiting(false)
         }
-
-
-        if (!validUser || !existingUsers) {
-            setError({
-                email : true,
-                password : true
-            });
-            return;
-        }
-
-
-        setError({
-            email : false,
-            password : false
-        })
-        localStorage.setItem('CurrentUser', JSON.stringify(validUser))
-        navigate('/Home')
     }
 
     const handleNav = () => {
@@ -127,7 +138,7 @@ export const Login = () => {
                                             </div>
                                             <div className="d-flex flex-column gap-3">
                                             <div className="form-check">
-                                                <input type="checkbox" className="form-check-input border-success fs-5" id="termsCheck"/>
+                                                <input type="checkbox" className="form-check-input border-success fs-5" name="rememberMe" onChange={handleChange} checked={loginData.rememberMe} id="termsCheck"/>
                                                 <label htmlFor="termsCheck" className="fw-semibold text-black"style={{cursor : 'pointer'}}>Keep me signed in. <motion.button whileHover={{borderBottom : '0px'}} whileTap={{borderBottom : '0px'}} transition={{duration : 0}} type="button" ref={detailsRef} data-bs-toggle="tooltip" data-bs-placement="right" data-bs-custom-class="details-tooltip" data-bs-title="Checking this box will reduce the number of times you’re asked to sign in. To keep your account secure, use this option only on your personal devices." className="fw-bold fs-6 p-0" style={{color : '#00754A', border : '0px', borderBottom : '1.8px solid'}}>Details</motion.button></label>
                                             </div>
                                             </div>
@@ -138,7 +149,7 @@ export const Login = () => {
                                             </div>
                                         </div>
                                         <div className="col d-flex justify-content-end">
-                                            <motion.button whileHover={{backgroundColor : 'black'}} className="btn border-0 p-3 fw-bold text-white fs-5 rounded-pill" style={{backgroundColor : '#00754A'}}>Sign in</motion.button>
+                                            <motion.button whileHover={{backgroundColor : 'black'}} className="btn border-0 p-3 fw-bold text-white fs-5 rounded-pill" style={{backgroundColor : '#00754A'}} disabled={isSubmiting}>{isSubmiting ? 'Signing in...' : 'Sign in'}</motion.button>
                                         </div>
                                     </div>
                                     <hr />

@@ -7,22 +7,22 @@ import { BiLogoInstagram, BiLogoInstagramAlt } from "react-icons/bi";
 import { TbBrandYoutubeFilled } from "react-icons/tb";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { useState } from "react";
+import { useAuth } from "../AuthContext";
 
 
 
 export function Navbar() {
-    const userExist = JSON.parse(localStorage.getItem('CurrentUser'));
+
+    const {user, logout} = useAuth();
 
     const [isCollapsed, setIsCollapsed] = useState(true)
 
     const handleToggle = () => {
         setIsCollapsed(!isCollapsed);
     }
-    
-    const user = userExist ? JSON.parse : ''
 
-    const handleLogout = () => {
-        localStorage.removeItem('CurrentUser')
+    const handleLogout = async () => {
+        await logout()
         window.location.reload();
     }
     return(

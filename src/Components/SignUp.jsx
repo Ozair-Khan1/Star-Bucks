@@ -1,8 +1,14 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { account, ID } from "../appwrite";
+import { useAuth } from "../AuthContext";
 
 export const SignUp = () => {
+
+    const [isSubmitting, setIsSubmiting] = useState(false)
+
+    const {setUser} = useAuth()
     
     const navigate = useNavigate()
 
@@ -55,15 +61,8 @@ export const SignUp = () => {
     }
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const existingUsers = JSON.parse(localStorage.getItem('AllUser')) || [];
-        const isEmailTaken = existingUsers.find((user) => user.email === formData.email)
-
-        if (isEmailTaken) {
-            setExists(true)
-        }
 
         const newError = {
             firstName : formData.firstName.trim() === '',
@@ -78,27 +77,42 @@ export const SignUp = () => {
 
         const hasError = Object.values(newError).includes(true)
 
-        const createNewUser = {
-        name : formData.firstName,
-        email : formData.email,
-        password : formData.password
+        if (hasError) {
+            setIsSubmiting(false)
+            return
         }
 
-        if (hasError && isEmailTaken) {
-            return
-        } else if (!hasError && !isEmailTaken) {
-            const updatedUser = [...existingUsers, createNewUser]
-            localStorage.setItem('AllUser', JSON.stringify(updatedUser))
-            localStorage.setItem('CurrentUser', JSON.stringify(formData))
-            setFormData({
-            firstName : '',
-            lastName : '',
-            email : '',
-            password : '',
-            passwordLength : '',
-            termsCheck : ''
-            })
+        try {
+            const fullName = `${formData.firstName} ${formData.lastName}`;
+
+            await account.create(
+                ID.unique(),
+                formData.email,
+                formData.password,
+                fullName
+            );
+
+            setIsSubmiting(true)
+
+            await account.createEmailPasswordSession(formData.email, formData.password);
+
+            const loggedInUser = await account.get();
+            setUser(loggedInUser)
+
             navigate('/Home')
+
+        } catch (err) {
+            if (err.code === 409) {
+                setExists(true);
+            } else if (err.code === 401) {
+                navigate('/Home')
+            } else if (err.code === 429) {
+                alert('Something went wrong, Please try again')
+            } else {
+                console.log(err.message)
+            }
+        } finally {
+            setIsSubmiting(false)
         }
     }
 
@@ -206,7 +220,7 @@ export const SignUp = () => {
                                         </div>
                                     </div>
                                     <div className="col justify-content-end d-flex">
-                                        <motion.button whileHover={{backgroundColor : 'black'}} className="btn border-0 p-3 fw-bold text-white fs-5 rounded-pill" style={{backgroundColor : '#00754A'}}>Create Account</motion.button>
+                                        <motion.button whileHover={{backgroundColor : 'black'}} className="btn border-0 p-3 fw-bold text-white fs-5 rounded-pill" style={{backgroundColor : '#00754A'}} disabled={isSubmitting}>{isSubmitting ? 'Creating' : 'Create An Account'}</motion.button>
                                     </div>
                                 </div>
                             </div>

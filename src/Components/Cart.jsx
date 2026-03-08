@@ -2,11 +2,11 @@ import { Link, useNavigate } from "react-router-dom"
 import { UseCart } from "../Data/CartReducer"
 import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react";
+import { useAuth } from "../AuthContext";
 
 export const Cart = () => {
-    const userExist = JSON.parse(localStorage.getItem('CurrentUser'));
 
-    const user = userExist ? JSON.parse : ''
+    const {user} = useAuth();
 
     const [showModal, setShowModal] = useState(false)
 

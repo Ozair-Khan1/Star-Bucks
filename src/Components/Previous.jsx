@@ -2,12 +2,12 @@ import { UseCart } from "../Data/CartReducer";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { MenuFooter } from "./MenuFooter";
+import { useAuth } from "../AuthContext";
 
 export const Previous = () => {
-    const userExist = JSON.parse(localStorage.getItem('CurrentUser'));
     const navigate = useNavigate();
 
-    const user = userExist ? JSON.parse : ""
+    const {user} = useAuth();
 
     const {cart, dispatch} = UseCart();
 
