@@ -24,6 +24,8 @@ export function Menu() {
     const addToCart = (item) => {
         setIsBumping(true)
 
+        localStorage.setItem('Previous Cart', JSON.stringify([...cart, item]))
+
         setTimeout(() => {
             setIsBumping(false)
         }, 2500)

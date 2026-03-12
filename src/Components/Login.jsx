@@ -4,7 +4,8 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
-import { account } from "../appwrite";
+import { account, databases } from "../appwrite";
+import { Query } from "appwrite";
 
 export const Login = () => {
     const detailsRef = useRef();
@@ -31,12 +32,14 @@ export const Login = () => {
 
     const [loginData, setLoginData] = useState({
         email : localStorage.getItem('rememberMe') || '',
+        name : '',
         password : '',
         rememberMe : false
     });
 
     const [error, setError] = useState({
         email : false,
+        name : false,
         password : false
     });
 
@@ -61,16 +64,36 @@ export const Login = () => {
             setIsSubmiting(false)
             setError({
             email: !loginData.email.trim(),
+            name: !loginData.name.trim(),
             password: !loginData.password.trim()
             });
             return;
         }
 
         try {
-            await account.createEmailPasswordSession(loginData.email, loginData.password);
+
+            let loginEmail = loginData.email
+
+            if(!loginEmail.includes('@')) {
+                const response = await databases.listDocuments(
+                    '69b2af8b003da59ffe2c',
+                    'user_profiles',
+                    [Query.equal('userName', loginEmail)]
+                );
+
+                if (response.documents.length === 0) {
+                    setError({
+                        name : true,
+                    });
+                }
+
+                loginEmail = response.documents[0].email
+            }
+
+            await account.createEmailPasswordSession(loginEmail, loginData.password);
 
             if (loginData.rememberMe) {
-                localStorage.setItem('rememberMe', loginData.email);
+                localStorage.setItem('rememberMe', loginEmail);
             } else {
                 localStorage.removeItem('rememberMe');
             }
@@ -124,6 +147,11 @@ export const Login = () => {
                                                 {error.email && (
                                                     <div className="text-danger fs-6 mt-1">
                                                         Invalid username or email.
+                                                    </div>
+                                                )}
+                                                {error.name && (
+                                                    <div className="text-danger fs-6 mt-1">
+                                                        Invalid username.
                                                     </div>
                                                 )}
                                             </div>

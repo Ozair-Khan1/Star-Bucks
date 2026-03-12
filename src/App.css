@@ -88,3 +88,69 @@ a.nav-link.active {
 .btn-white {
     color: white !important;
 }
+
+.cart-container {
+    width: 500px;
+    height: max-content;
+}
+
+.cart-cart-container {
+    width: 500px;
+    height: max-content;
+}
+
+.cart-align {
+    display: flex;
+    gap: 2px;
+}
+
+.cart-body {
+    width: 350px;
+}
+
+.cart-img {
+    width: 210px;
+}
+
+@media screen and (max-width : 532px) {
+
+    .cart-container {
+        width: auto;
+    }
+
+    .cart-align {
+        flex-direction: column;
+        justify-content: center !important;
+    }
+    
+}
+
+@media screen and (max-width : 380px) {
+    .cart-align {
+        width: auto;
+    }
+
+    .cart-body {
+        width: auto;
+    }
+
+    .cart-img {
+        width: auto;
+    }
+}
+
+@media screen and (max-width : 1080px) {
+    .container-cart {
+        flex-direction: column !important;
+    }
+}
+
+.slider {
+    display: flex;
+}
+
+@media screen and (max-width : 300px) {
+    .slider {
+        display: none !important;
+    }
+}

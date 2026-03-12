@@ -1,7 +1,8 @@
 import { motion } from "framer-motion"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
-import { account, ID } from "../appwrite";
+import { data, useNavigate } from "react-router-dom";
+import { account, ID, databases } from "../appwrite";
+import { Query } from "appwrite";
 import { useAuth } from "../AuthContext";
 
 export const SignUp = () => {
@@ -11,6 +12,8 @@ export const SignUp = () => {
     const {setUser} = useAuth()
     
     const navigate = useNavigate()
+
+    const [nameExists, setNameExists] = useState(false)
 
     const [formData, setFormData] = useState({
         firstName : '',
@@ -82,17 +85,65 @@ export const SignUp = () => {
             return
         }
 
-        try {
-            const fullName = `${formData.firstName} ${formData.lastName}`;
+        setIsSubmiting(true)
 
-            await account.create(
+        try {
+            const fullName = `${formData.firstName.trim()} ${formData.lastName.trim()}`;
+            const cleanEmail = formData.email.trim().toLowerCase();
+
+            const existingProfiles = await databases.listDocuments(
+                '69b2af8b003da59ffe2c', 
+                'user_profiles', 
+                [
+                    Query.or([
+                        Query.equal('email', [cleanEmail]),
+                        Query.equal('userName', [fullName])
+                    ])
+                ]
+            );
+
+
+            if (existingProfiles.documents.length > 0) {
+                const conflict = existingProfiles.documents[0]
+                let hasConflict = false;
+                if(conflict.email === cleanEmail) {
+                    setExists(true);
+                    hasConflict = true;
+                } else {
+                    setExists(false);
+                }
+
+                if (conflict.userName === fullName) {
+                    setNameExists(true);
+                    hasConflict = true;
+                } else {
+                    setNameExists(false);
+                }
+
+                if (hasConflict) {
+                    setIsSubmiting(false);
+                    return;
+                }
+            }
+
+            const newAccount = await account.create(
                 ID.unique(),
                 formData.email,
                 formData.password,
                 fullName
             );
 
-            setIsSubmiting(true)
+            await databases.createDocument(
+                '69b2af8b003da59ffe2c',
+                'user_profiles',
+                newAccount.$id,
+                {
+                    userName: fullName,
+                    email: formData.email,
+                    displayName: fullName,
+                    status: "Active"
+                }
+            );
 
             await account.createEmailPasswordSession(formData.email, formData.password);
 
@@ -147,6 +198,11 @@ export const SignUp = () => {
                                                 {error.firstName && (
                                                     <div className="text-danger fs-6 mt-1">
                                                     Please enter your first name.
+                                                    </div>
+                                                )}
+                                                {nameExists && (
+                                                    <div className="text-danger fs-6 mt-1">
+                                                    This name already exists
                                                     </div>
                                                 )}
                                             </div>
@@ -220,7 +276,7 @@ export const SignUp = () => {
                                         </div>
                                     </div>
                                     <div className="col justify-content-end d-flex">
-                                        <motion.button whileHover={{backgroundColor : 'black'}} className="btn border-0 p-3 fw-bold text-white fs-5 rounded-pill" style={{backgroundColor : '#00754A'}} disabled={isSubmitting}>{isSubmitting ? 'Creating' : 'Create An Account'}</motion.button>
+                                        <motion.button whileHover={{backgroundColor : 'black'}} className="btn border-0 p-3 fw-bold text-white fs-5 rounded-pill" style={{backgroundColor : '#00754A'}} disabled={isSubmitting}>{isSubmitting ? 'Creating ...' : 'Create An Account'}</motion.button>
                                     </div>
                                 </div>
                             </div>

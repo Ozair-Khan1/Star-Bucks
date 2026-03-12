@@ -45,7 +45,7 @@ const ImageSlider = ({ images = [], title }) => {
           {title}
         </h6>
         {images.length >= 5 && (
-          <div className="d-none d-lg-flex d-xl-flex d-md-flex gap-2">
+          <div className="slider gap-2">
           <motion.button
             whileHover={{backgroundColor : '#006242'}}
             whileTap={{backgroundColor : '#006242'}}

@@ -54,7 +54,7 @@ export const Cart = () => {
 
     return (
         <>
-            <div className="container-fluid min-vh-100 p-0 d-flex flex-column flex-md-row">
+            <div className="container-fluid min-vh-100 p-0 d-flex container-cart flex-md-row">
                 <div className="col-md-4 text-white p-5" style={{ backgroundColor: '#1e3932' }}>
                     <div className="d-flex align-items-center mb-5 mt-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left me-2" viewBox="0 0 16 16">
@@ -90,7 +90,7 @@ export const Cart = () => {
                     </div>
                 </div>
 
-                <div className="col-md-8 d-flex flex-column-reverse flex-lg-column flex-xl-column bg-white p-5 text-center">
+                <div className="col-md-8 d-flex flex-column-reverse flex-lg-column flex-xl-column bg-white p-0 P-lg-5 p-xl-5 text-center">
                     <AnimatePresence>
                         {cart && cart.length === 0 ? (
                             <div className="mt-5 pt-5">
@@ -99,13 +99,13 @@ export const Cart = () => {
                         </div>
                         ) : (
                             cart.map((item, index) => (
-                                <motion.div layout initial={{opacity : 0, x : -20}} animate={{opacity : 1, x : 0}} exit={{opacity : 0, x : 50}} transition={{duration : 0.3}} className="col-md-8 mx-auto mt-4" key={`${item.id} - ${index}`}>
+                                <motion.div layout initial={{opacity : 0, x : -20}} animate={{opacity : 1, x : 0}} exit={{opacity : 0, x : 50}} transition={{duration : 0.3}} className="cart-container mx-auto mt-4" key={`${item.id} - ${index}`}>
                                     <div className="card rounded-4 shadow-lg">
-                                        <div className="d-flex flex-column  flex-lg-row text-break">
-                                            <div className="col-md-4">
-                                                <img src={item.image} className="w-100 rounded-pill img-fluid me-3" />
+                                        <div className="cart-align gap-3 text-break">
+                                            <div className="d-flex cart-img align-items-center mx-auto">
+                                                <img src={item.image} className="rounded-pill img-fluid mx-0 mx-lg-3 mx-xl-3" />
                                             </div>
-                                            <div className="col-md-6 mx-auto">
+                                            <div className="mx-auto cart-body">
                                                 <div className="card-body">
                                                     <div className="card-title border-0">
                                                         <p className="fw-bold fs-4 text-black">{item.name}</p>
@@ -139,7 +139,7 @@ export const Cart = () => {
                         )}
                     </AnimatePresence>
                     {cart.length > 0 && (
-                        <div className="col-md-8 mx-auto">
+                        <div className="cart-container mx-auto">
                             <div className="card rounded-4 shadow-lg p-4 mt-4">
                                 <div className="d-flex justify-content-between align-items-center mb-2">
                                     <span className="text-muted fs-5">Subtotal</span>
