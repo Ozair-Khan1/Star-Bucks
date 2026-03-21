@@ -1,5 +1,4 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { account } from "./appwrite";
 import axios from "axios";
 import api from "./utils/api";
 
