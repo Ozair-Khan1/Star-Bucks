@@ -4,9 +4,6 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../AuthContext";
-import { account, databases } from "../appwrite";
-import { Query } from "appwrite";
-import axios from "axios";
 import api from "../utils/api";
 
 export const Login = () => {
