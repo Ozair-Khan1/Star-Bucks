@@ -1,0 +1,156 @@
+* {
+   scrollbar-width: thin;
+}
+
+
+a.nav-link.active {
+    border-bottom: 4px solid green !important;
+}
+
+
+
+
+@media screen and (max-width : 766px) {
+    .card-img-top {
+        width: 145px !important;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .image-slider-padding {
+        padding: 0px 1.2rem !important;
+    }
+}
+
+.form-control:focus:not(:invalid):not(.is-invalid) {
+    border-width: 2.8px;
+    border-color: green !important;
+    box-shadow: none !important;
+}
+
+.is-invalid {
+    border-color: red !important;
+}
+
+.form-check-input:checked:not(:invalid):not(.is-invalid) {
+    background-color: green !important; /* Your custom color */
+    border-color: green !important;
+    box-shadow: none !important; /* Matches the background */
+}
+
+.details-tooltip .tooltip-inner {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid #cba258;
+    letter-spacing: 1px !important;
+}
+
+.details-tooltip .tooltip-arrow::before {
+    border-right-color: #cba258 !important;
+}
+
+.name-tooltip .tooltip-inner {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid #cba258;
+    letter-spacing: 1px !important;
+}
+
+.name-tooltip .tooltip-arrow::before {
+    border-bottom-color: #cba258 !important;
+}
+
+.nav-img {
+    width: 70px;
+}
+
+.nav-img-home {
+    width: 70px;
+    margin: 0px 100px !important;
+}
+
+@media screen and (max-width : 340px) {
+    .nav-img-home {
+        margin: 0px 30px !important;
+    }
+}
+
+.nav-img-border {
+    border-bottom: 1px solid rgb(196, 191, 191);
+}
+
+@media screen and (max-width : 992px) {
+    .nav-img {
+        width: 60px !important;
+    }
+}
+
+.btn-white {
+    color: white !important;
+}
+
+.cart-container {
+    width: 500px;
+    height: max-content;
+}
+
+.cart-cart-container {
+    width: 500px;
+    height: max-content;
+}
+
+.cart-align {
+    display: flex;
+    gap: 2px;
+}
+
+.cart-body {
+    width: 350px;
+}
+
+.cart-img {
+    width: 210px;
+}
+
+@media screen and (max-width : 532px) {
+
+    .cart-container {
+        width: auto;
+    }
+
+    .cart-align {
+        flex-direction: column;
+        justify-content: center !important;
+    }
+    
+}
+
+@media screen and (max-width : 380px) {
+    .cart-align {
+        width: auto;
+    }
+
+    .cart-body {
+        width: auto;
+    }
+
+    .cart-img {
+        width: auto;
+    }
+}
+
+@media screen and (max-width : 1080px) {
+    .container-cart {
+        flex-direction: column !important;
+    }
+}
+
+.slider {
+    display: flex;
+}
+
+@media screen and (max-width : 300px) {
+    .slider {
+        display: none !important;
+    }
+}
