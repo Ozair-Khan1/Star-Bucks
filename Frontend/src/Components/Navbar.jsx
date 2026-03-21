@@ -9,8 +9,6 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { useState } from "react";
 import { useAuth } from "../AuthContext";
 import { AnimatePresence } from "framer-motion";
-import axios from "axios";
-
 
 
 const Navbar = () => {
